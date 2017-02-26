@@ -12,19 +12,7 @@ var tasks = [
     }
 ];
 
-//OLD SYNTAX
-//Display a task 
-// var Task = React.createClass({
-//   render: function(){
-//     return (
-//       <div className="task">
-//       <h2>A sample task</h2>
-//       </div>
-//     )
-//   }
-// })
-
-//Render one task
+//Render one task with passing in prop
 class Task extends React.Component {
   render() {
     return (
@@ -35,40 +23,14 @@ class Task extends React.Component {
   }
 }
 
-// //Render all tasks using .map
-// class TaskList extends React.Component {
-//   render(){
-//     //DEFINE taskNodes function!!!!!!
-//     //map tasks onto taskNodes
-//     //for the use of passing props later
-//     var taskNodes = tasks.map(function(task){
-//       return (
-//         <Task
-//       );
-//     })
-    
-//     //return taskList
-//       //call {taskNodes}
-//       //will call Task function 
-//       //and return rendering
-      
-      
-//     return{
-      
-//     }
-//   }
-// }
-
-
-
 
 //This is where it all starts
-
 //Render task with passing in a prop
 ReactDOM.render(
   <Task title="code a muffin" />, document.getElementById('root')
 );
 
+//Sample Hello World code 
 // ReactDOM.render(
 //   <h2>Herrow, world! 🌏 🌏 🌏 </h2>,
 //   document.getElementById('root')
