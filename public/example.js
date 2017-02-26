@@ -25,9 +25,9 @@ class Task extends React.Component {
 
 
 //This is where it all starts
-//Render task with passing in a prop
+//Render task with passing in a prop from const array
 ReactDOM.render(
-  <Task title="code a muffin" />, document.getElementById('root')
+  <Task title={tasks[0].title} />, document.getElementById('root')
 );
 
 //Sample Hello World code 
