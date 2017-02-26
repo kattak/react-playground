@@ -12,7 +12,7 @@ var tasks = [
     }
 ];
 
-//Render one task with passing in prop
+
 class Task extends React.Component {
   render() {
     return (
@@ -27,20 +27,14 @@ class Task extends React.Component {
 //Render all tasks using .map
 class TaskList extends React.Component {
   render(){
-    //DEFINE taskNodes function!!!!!!
-    //map tasks onto taskNodes
-    //for the use of passing props later
+    //define taskNodes - a collection of tasks 
     var taskNodes = tasks.map(function(task){
       return (
         <Task title={task.title}/>
       );
     })
     
-    //return taskList
-      //call {taskNodes}
-      //will call Task function 
-      //and return rendering
-      
+//render whole taskList
     return(
       <div className="taskList">
       {taskNodes}
@@ -49,11 +43,38 @@ class TaskList extends React.Component {
   }
 }
 
+//Task Form
+class TaskForm extends React.Component {
+  //handle form submit
+  handleSubmit(e){
+    e.preventDefault();
+    console.log("in handleSubmit");
+    var newTask = {title: "cook rice", id: "1420070400001"};
+    tasks.push(newTask);
+    console.log(tasks[2]);
+    ReactDOM.render(
+  <TaskForm/>, document.getElementById('formContainer')
+);
+  }
+  
+  //render form
+  render(){
+    return(
+    <form className="taskForm" onSubmit={this.handleSubmit}>
+      <input type = "text" placeholder = "what's your task?"
+      />
+      <input type = "submit" value="Post"/>
+      </form>
+    )
+  }
+}
 
-
-//Try task list
 ReactDOM.render(
   <TaskList/>, document.getElementById('root')
+);
+
+ReactDOM.render(
+  <TaskForm/>, document.getElementById('formContainer')
 );
 
 //Sample Hello World code 
