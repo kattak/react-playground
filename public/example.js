@@ -24,10 +24,36 @@ class Task extends React.Component {
 }
 
 
-//This is where it all starts
-//Render task with passing in a prop from const array
+//Render all tasks using .map
+class TaskList extends React.Component {
+  render(){
+    //DEFINE taskNodes function!!!!!!
+    //map tasks onto taskNodes
+    //for the use of passing props later
+    var taskNodes = tasks.map(function(task){
+      return (
+        <Task title={task.title}/>
+      );
+    })
+    
+    //return taskList
+      //call {taskNodes}
+      //will call Task function 
+      //and return rendering
+      
+    return(
+      <div className="taskList">
+      {taskNodes}
+      </div>
+    );
+  }
+}
+
+
+
+//Try task list
 ReactDOM.render(
-  <Task title={tasks[0].title} />, document.getElementById('root')
+  <TaskList/>, document.getElementById('root')
 );
 
 //Sample Hello World code 
