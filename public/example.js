@@ -1,4 +1,13 @@
+//Question: how to import modules? 
+//Could also be?  This file is not loaded before index.html is 
 
+//attempt #1
+//try importing specific modules from draft-js
+import {Editor, EditorState} from 'draft-js';
+
+//attempt #2
+// import entire library or plugin
+// import $ from 'draft-js'; 
 
 //Have some tasks
 var tasks = [
@@ -83,3 +92,20 @@ ReactDOM.render(
 //   document.getElementById('root')
 // );
 
+class MyEditor extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {editorState: EditorState.createEmpty()};
+    this.onChange = (editorState) => this.setState({editorState});
+  }
+  render() {
+    return (
+        <Editor editorState={this.state.editorState} onChange={this.onChange} />
+    );
+  }
+}
+
+ReactDOM.render(
+  <MyEditor />,
+  document.getElementById('draftContainer')
+);
